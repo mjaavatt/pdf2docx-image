@@ -19,7 +19,7 @@ filename = sys.argv[1]
 
 p = pathlib.Path(filename)
 globpath = p.parents[0] / (p.stem + '*' + p.suffix)
-filenames = glob.glob(str(globpath))
+filenames = sorted(glob.glob(str(globpath)))
 
 for i in filenames:
     document.add_picture(i, width=section.page_width*0.8)

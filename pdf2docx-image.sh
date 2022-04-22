@@ -12,5 +12,6 @@ filename=$RANDOM
 #echo $filename
 convert -density 300 -background white -alpha remove -bordercolor black -border 5 "$1" "$tmp_dir/$filename-%03d.png"
 python pdf2docx-image.py $tmp_dir/$filename
-
-#rm -rf $tmp_dir
+outputfilename=$(basename -- $1)
+mv demo.docx "${outputfilename%.*}.docx"
+rm -rf $tmp_dir
